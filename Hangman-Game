@@ -1,0 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hangmangame;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author sumantra
+ */
+public class HangmanGame {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner Sumantra = new Scanner(System.in);
+        
+        //How do we play
+        System.out.println("Welcome to Hangman! I will be choosing a random word for you "
+                + "and your job is to guess it.");
+        System.out.println("You have six lives in this game and if you guess it then you win,"
+                + "however if you don't guess it in six lives then you loose");
+        System.out.println("Are you ready to play because I am");
+        System.out.println();
+        System.out.println("Here is a picture of you and below that is your current guess"
+                + "Every time you guess incorrectly, I add body part to the picture. When a "
+                + "full body appears before you guees the correct word, that means you lose");
+        
+        //Allows for multiple games
+        boolean doYouWantToPlay = true;
+        
+        while(doYouWantToPlay){
+            //Setting up the game
+            System.out.println("Alright Lets Play");
+            Hangman game = new Hangman();
+            
+            do{
+                
+                System.out.println();
+                System.out.println(game.drawPicture());
+                System.out.println(game.mysteryWord);
+                System.out.println(game.getFormalCurrentGuess());
+                
+            }while(!game.gameOver());
+
+            System.out.println();
+            System.out.println("Do you want to play another game, then enter 'Y' ");
+            Character response = (Sumantra.next().toUpperCase()).charAt(0);
+            doYouWantToPlay = (response == 'Y');
+            
+            
+        }
+        
+   
+    }
+}
+    
